@@ -1,4 +1,3 @@
--- 코드를 작성해주세요
 SELECT D.DEPT_ID
      , D.DEPT_NAME_EN
      , ROUND(AVG(SAL)) AS AVG_SAL
