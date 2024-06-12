@@ -1,11 +1,8 @@
 -- 코드를 작성해주세요
-SELECT ID
-  FROM ECOLI_DATA
- WHERE PARENT_ID IN (SELECT ED1.ID
-                       FROM ECOLI_DATA ED1 JOIN (SELECT ID
-                                                   FROM ECOLI_DATA
-                                               WHERE PARENT_ID IS NULL) ED2
-                         ON ED1.PARENT_ID = ED2.ID)
- ORDER BY ID;
-                      
-                      
+SELECT T3.ID
+  FROM ECOLI_DATA T1 JOIN ECOLI_DATA T2
+    ON T1.ID = T2.PARENT_ID
+   AND T1.PARENT_ID IS NULL
+  JOIN ECOLI_DATA T3
+    ON T2.ID = T3.PARENT_ID
+ ORDER BY T3.ID;
